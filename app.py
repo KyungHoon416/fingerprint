@@ -2,10 +2,14 @@ from flask import Flask, request, jsonify
 import openai
 import base64
 import os
+from dotenv import load_dotenv  # ← 이거 추가
+
+load_dotenv()  # ← 이거 추가
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
 app = Flask(__name__)
+
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
